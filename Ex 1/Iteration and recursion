@@ -1,0 +1,89 @@
+def factorial_iterative(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+def factorial_recursive(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial_recursive(n - 1)
+
+def fibonacci_iterative(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        a, b = 0, 1
+        for k in range(2, n + 1):
+            a, b = b, a + b
+        return b
+
+def fibonacci_recursive(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+
+def sum_natural_numbers_iterative(n):
+    result = 0
+    for i in range(1, n + 1):
+        result += i
+    return result
+
+
+def sum_natural_numbers_recursive(n):
+    if n == 1:
+        return 1
+    else:
+        return n + sum_natural_numbers_recursive(n - 1)
+
+
+def power_iterative(x, n):
+    result = 1
+    for _ in range(n):
+        result *= x
+    return result
+
+
+def power_recursive(x,n):
+    if n == 0:
+        return 1
+    else:
+        return x * power_recursive(x,n- 1)
+    
+def sum_array_iterative(arr):
+    if(len(arr)<=1):
+        return arr
+    else:
+        result =0
+        for i in arr:
+            result = result+ i
+        return result
+    
+
+
+def sum_array_recursive(arr, m):
+    if m <= 0:
+        return 0
+    else:
+        return arr[m - 1] + sum_array_recursive(arr, m - 1)
+
+
+print('Iterative factirial of 10 :',factorial_iterative(10))
+print('Recursive factirial of 10 :',factorial_recursive(10))
+print('Recursive Fibonacci series of 10',fibonacci_recursive(10))
+print('Iterative Fibonacci series of 10',fibonacci_iterative(10))
+print('Iterative sum of natural numbers till 10',sum_natural_numbers_iterative(10))
+print('Recursive sum of natural numbers till 10',sum_natural_numbers_recursive(10))
+print('Iterative power of 10 ^7',power_iterative(10, 7))
+print('Recursive power of 10 ^7',power_recursive(10, 7))
+arr=[7,9,20,22,10]
+m=len(arr)
+print('Iterative sum of an array [7,9,20,22,10]',sum_array_iterative(arr))
+print('Recursive sum of an array [7,9,20,22,10]',sum_array_recursive(arr,m))

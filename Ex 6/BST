@@ -1,0 +1,47 @@
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+def insert(root, key):
+    if root is None:
+        return TreeNode(key)
+    if key < root.key:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+    return root
+
+def search(root, key):
+    if root is None or root.key == key:
+        return root
+    if root.key < key:
+        return search(root.right, key)
+    return search(root.left, key)
+
+def inorder_traversal(root):
+    if root:
+        inorder_traversal(root.left)
+        print(root.key, end=' ')
+        inorder_traversal(root.right)
+
+# Create an empty binary search tree
+root = None
+
+# Insert elements into the tree
+keys = [50, 30, 70, 20, 40, 60, 80,90]
+for key in keys:
+    root = insert(root, key)
+
+# Perform in-order traversal to display elements in sorted order
+print("In-order traversal:")
+inorder_traversal(root)
+
+# Search for a key in the tree
+search_key = 80
+result = search(root, search_key)
+if result:
+    print(f"\n{search_key} found in the tree.")
+else:
+    print(f"\n{search_key} not found in the tree.")
